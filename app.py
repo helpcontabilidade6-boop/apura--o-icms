@@ -40,7 +40,7 @@ def moeda(valor):
     return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
-def processar(df, valor_col):
+def processar(df, valor_col, imposto_col=8):
 
     df = df.copy()
 
@@ -104,12 +104,14 @@ if arquivo_matriz and arquivo_filial:
 
         receita_matriz, devol_matriz, icms_matriz = processar(
             matriz,
-            valor_col=5
+            valor_col=5,
+            imposto_col=8
         )
 
         receita_filial, devol_filial, icms_filial = processar(
             filial,
-            valor_col=6
+            valor_col=6,
+            imposto_col=9
         )
 
         receita_total = receita_matriz + receita_filial
