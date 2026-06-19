@@ -45,7 +45,7 @@ def processar(df, valor_col, imposto_col=8):
     df = df.copy()
 
     CFOP_COL = 0
-    IMPOSTO_COL = 8
+    IMPOSTO_COL = imposto_col
 
     df["cfop_num"] = (
         df[CFOP_COL]
