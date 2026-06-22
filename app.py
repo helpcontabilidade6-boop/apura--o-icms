@@ -26,7 +26,8 @@ CFOPS_VENDA = [
     6108,
     6110,
     6401,
-    5102
+    5102,
+    6403
 ]
 
 CFOPS_DEVOLUCAO = [
