@@ -88,31 +88,34 @@ def processar(df, valor_col, imposto_col=8):
     return receita, devolucao, icms
 
 
-if arquivo_matriz and arquivo_filial:
+if arquivo_matriz or arquivo_filial:
 
     try:
+        receita_matriz = devol_matriz = icms_matriz = 0
+        receita_filial = devol_filial = icms_filial = 0
 
-        matriz = pd.read_excel(
-            arquivo_matriz,
-            header=None
-        )
+        if arquivo_matriz:
+            matriz = pd.read_excel(
+                arquivo_matriz,
+                header=None
+            )
+            receita_matriz, devol_matriz, icms_matriz = processar(
+                matriz,
+                valor_col=5,
+                imposto_col=8
+            )        
 
-        filial = pd.read_excel(
-            arquivo_filial,
-            header=None
-        )
+        if arquivo_filial:
+            filial = pd.read_excel(
+                arquivo_filial,
+                header=None
+            )
 
-        receita_matriz, devol_matriz, icms_matriz = processar(
-            matriz,
-            valor_col=5,
-            imposto_col=8
-        )
-
-        receita_filial, devol_filial, icms_filial = processar(
-            filial,
-            valor_col=6,
-            imposto_col=9
-        )
+            receita_filial, devol_filial, icms_filial = processar(
+                filial,
+                valor_col=6,
+                imposto_col=9
+            )
 
         receita_total = receita_matriz + receita_filial
         devol_total = devol_matriz + devol_filial
