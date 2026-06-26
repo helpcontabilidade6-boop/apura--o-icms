@@ -103,7 +103,7 @@ if arquivo_matriz or arquivo_filial:
             receita_matriz, devol_matriz, icms_matriz = processar(
                 matriz,
                 valor_col=6,
-                imposto_col=8
+                imposto_col=9
             )        
 
         if arquivo_filial:
