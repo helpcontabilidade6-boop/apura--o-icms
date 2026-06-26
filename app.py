@@ -32,7 +32,6 @@ CFOPS_VENDA = [
 
 CFOPS_DEVOLUCAO = [
     1202,
-    1208,
     1411,
     2411
 ]
